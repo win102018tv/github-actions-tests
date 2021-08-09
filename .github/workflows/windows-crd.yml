@@ -1,0 +1,21 @@
+name: Windows-CRD
+
+on: 
+  workflow_dispatch:
+    inputs:
+      authcode:
+        description: 'CRD code'
+        required: true
+  
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Initializing Setup
+      run: ./setup.ps1
+    - name: Starting CRD
+      run: ${{ github.event.inputs.authcode }}
+    - name: Keep Alive
+      run: ./timeout.ps1
