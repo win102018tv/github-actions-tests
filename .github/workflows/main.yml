@@ -29,9 +29,6 @@ jobs:
       run: C:\Windows\system32\net.exe localgroup Administrators $Env:RDP_USERNAME /add
       env:
         RDP_USERNAME: ${{ secrets.RDP_USERNAME }}
-      env:
-        RDP_USERNAME: ${{ secrets.RDP_USERNAME }}
-        RDP_PASSWORD: ${{ secrets.RDP_PASSWORD }}
     - name: Enable TS
       run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
     - run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
