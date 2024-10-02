@@ -25,10 +25,6 @@ jobs:
       env:
         RDP_USERNAME: ${{ secrets.RDP_USERNAME }}
         RDP_PASSWORD: ${{ secrets.RDP_PASSWORD }}
-      run: C:\Windows\system32\net.exe user $Env:RDP_USERNAME $Env:RDP_PASSWORD
-      env:
-        RDP_USERNAME: ${{ secrets.RDP_USERNAME }}
-        RDP_PASSWORD: ${{ secrets.RDP_PASSWORD }}
     - name: Giving administrator access for user account
       run: C:\Windows\system32\net.exe localgroup Administrators $Env:RDP_USERNAME /add
       env:
